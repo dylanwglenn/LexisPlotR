@@ -28,7 +28,7 @@ lexis_cohort <- function(lg, cohort, delta = 1, fill = lexisplotr_colours()[3], 
   age_start <- gg$layout$coord$limits$y[1]
   age_end <- gg$layout$coord$limits$y[2]
   
-  polygon <- data.frame(x = c(cohort, cohort + delta, cohort + delta + age_end, cohort + age_end), 
+  polygon <- data.frame(x = c(cohort + age_start, cohort + delta + age_start, cohort + delta + age_end + age_start, cohort + age_end + age_start), 
                         y = c(age_start, age_start, age_end + age_start, age_end + age_start))
   
   polygon$x <- as.Date(paste(polygon$x, "-01-01", sep = ""), origin = "1970-01-01")
